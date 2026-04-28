@@ -44,5 +44,3 @@ function getDBConnection(): PDO
 
     return $pdo;
 }
-
-// define('DB_DEBUG_MODE', true);
