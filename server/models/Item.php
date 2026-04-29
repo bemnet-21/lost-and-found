@@ -167,5 +167,3 @@ class ItemModel
         return (int) $stmt->fetchColumn() > 0;
     }
 }
-
-// public function getArchiveStatus() { return false; }
