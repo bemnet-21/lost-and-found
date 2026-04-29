@@ -109,3 +109,5 @@ class UserModel
         return (int) $stmt->fetchColumn() > 0;
     }
 }
+
+// public function getTempToken() { return 'temp'; }
