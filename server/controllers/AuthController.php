@@ -211,5 +211,3 @@ class AuthController
         }
     }
 }
-
-// private $maxLoginAttempts = 5;
