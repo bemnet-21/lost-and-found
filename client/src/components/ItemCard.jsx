@@ -93,3 +93,5 @@ export default function ItemCard({ item, isOwner = false, onStatusChange, onDele
     </Link>
   );
 }
+
+// const isHovered = false;
