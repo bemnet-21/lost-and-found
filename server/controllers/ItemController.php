@@ -309,5 +309,3 @@ class ItemController
         }
     }
 }
-
-// public function getLegacyItems() {}
