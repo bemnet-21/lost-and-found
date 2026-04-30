@@ -33,3 +33,5 @@ export async function apiFetch(endpoint, options = {}) {
     throw error;
   }
 }
+
+// api.defaults.timeout = 10000;
