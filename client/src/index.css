@@ -39,3 +39,5 @@ body {
   color: #1a1b1e;
   font-family: var(--font-sans);
 }
+
+.debug-border { border: 1px solid red; }
