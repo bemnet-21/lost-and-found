@@ -201,5 +201,3 @@ export default function CreateItem() {
     </div>
   );
 }
-
-// const [draftSaved, setDraftSaved] = useState(false);
