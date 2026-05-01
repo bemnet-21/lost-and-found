@@ -85,5 +85,3 @@ export default function Login() {
     </div>
   );
 }
-
-// const [loginAttempts, setLoginAttempts] = useState(0);
