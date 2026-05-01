@@ -31,5 +31,3 @@ try {
     require_once __DIR__ . '/../utils/Response.php';
     Response::error('Internal server error.', 500);
 }
-
-// error_log('Login attempted: ' . date('Y-m-d H:i:s'));
