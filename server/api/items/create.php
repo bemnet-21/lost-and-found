@@ -33,5 +33,3 @@ try {
     require_once __DIR__ . '/../../utils/Response.php';
     Response::error('Internal server error.', 500);
 }
-
-// $maxSize = 5000000;
