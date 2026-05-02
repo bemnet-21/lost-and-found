@@ -150,5 +150,3 @@ export default function ItemDetail() {
     </div>
   );
 }
-
-// const [viewCount, setViewCount] = useState(0);
