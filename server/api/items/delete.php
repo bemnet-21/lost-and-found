@@ -8,20 +8,20 @@
  */
 
 // CORS & Headers
-require_once __DIR__ . '/../../utils/cors.php';
+require_once dirname(__DIR__, 2) . '/utils/cors.php';
 
 // Enforce DELETE method
 if ($_SERVER['REQUEST_METHOD'] !== 'DELETE') {
-    require_once __DIR__ . '/../../utils/Response.php';
+    require_once dirname(__DIR__, 2) . '/utils/Response.php';
     Response::error('Method not allowed. Use DELETE.', 405);
 }
 
 // Session & Database
-require_once __DIR__ . '/../../config/session.php';
-require_once __DIR__ . '/../../config/db.php';
+require_once dirname(__DIR__, 2) . '/config/session.php';
+require_once dirname(__DIR__, 2) . '/config/db.php';
 
 // Controller
-require_once __DIR__ . '/../../controllers/ItemController.php';
+require_once dirname(__DIR__, 2) . '/controllers/ItemController.php';
 
 try {
     $db = getDBConnection();
@@ -29,6 +29,6 @@ try {
     $controller->deleteItem();
 } catch (PDOException $e) {
     error_log('Item Delete Endpoint Error: ' . $e->getMessage());
-    require_once __DIR__ . '/../../utils/Response.php';
+    require_once dirname(__DIR__, 2) . '/utils/Response.php';
     Response::error('Internal server error.', 500);
 }

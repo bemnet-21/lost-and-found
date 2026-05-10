@@ -6,20 +6,20 @@
  */
 
 // CORS & Headers
-require_once __DIR__ . '/../utils/cors.php';
+require_once dirname(__DIR__) . '/utils/cors.php';
 
 // Enforce POST method
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    require_once __DIR__ . '/../utils/Response.php';
+    require_once dirname(__DIR__) . '/utils/Response.php';
     Response::error('Method not allowed. Use POST.', 405);
 }
 
 // Session & Database
-require_once __DIR__ . '/../config/session.php';
-require_once __DIR__ . '/../config/db.php';
+require_once dirname(__DIR__) . '/config/session.php';
+require_once dirname(__DIR__) . '/config/db.php';
 
 // Controller
-require_once __DIR__ . '/../controllers/AuthController.php';
+require_once dirname(__DIR__) . '/controllers/AuthController.php';
 
 try {
     $db = getDBConnection();
@@ -27,6 +27,6 @@ try {
     $controller->logout();
 } catch (PDOException $e) {
     error_log('Logout Endpoint Error: ' . $e->getMessage());
-    require_once __DIR__ . '/../utils/Response.php';
+    require_once dirname(__DIR__) . '/utils/Response.php';
     Response::error('Internal server error.', 500);
 }

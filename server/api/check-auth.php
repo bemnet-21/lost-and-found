@@ -7,20 +7,20 @@
  */
 
 // CORS & Headers
-require_once __DIR__ . '/../utils/cors.php';
+require_once dirname(__DIR__) . '/utils/cors.php';
 
 // Enforce GET method
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
-    require_once __DIR__ . '/../utils/Response.php';
+    require_once dirname(__DIR__) . '/utils/Response.php';
     Response::error('Method not allowed. Use GET.', 405);
 }
 
 // Session & Database
-require_once __DIR__ . '/../config/session.php';
-require_once __DIR__ . '/../config/db.php';
+require_once dirname(__DIR__) . '/config/session.php';
+require_once dirname(__DIR__) . '/config/db.php';
 
 // Controller
-require_once __DIR__ . '/../controllers/AuthController.php';
+require_once dirname(__DIR__) . '/controllers/AuthController.php';
 
 try {
     $db = getDBConnection();
@@ -28,6 +28,6 @@ try {
     $controller->checkAuth();
 } catch (PDOException $e) {
     error_log('Check Auth Endpoint Error: ' . $e->getMessage());
-    require_once __DIR__ . '/../utils/Response.php';
+    require_once dirname(__DIR__) . '/utils/Response.php';
     Response::error('Internal server error.', 500);
 }
