@@ -1,16 +1,15 @@
-const BASE_URL = 'http://localhost/lost-and-found/server/api';
+const BASE_URL = 'https://lost-and-found-production-7e24.up.railway.app/';
 
 export async function apiFetch(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;
   
   const defaultOptions = {
-    credentials: 'include', // Important for sending/receiving session cookies
+    credentials: 'include', 
     headers: {
       'Accept': 'application/json',
     },
   };
 
-  // Only set Content-Type to application/json if we're not sending FormData
   if (!(options.body instanceof FormData)) {
     defaultOptions.headers['Content-Type'] = 'application/json';
   }
