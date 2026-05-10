@@ -8,7 +8,7 @@
 
 
 
-define('DB_URL', getenv('DATABASE_URL') ?: 'postgresql://neondb_owner:npg_F3rbmi4KznoM@ep-withered-firefly-aqrf3k94-pooler.c-8.us-east-1.aws.neon.tech/lost_and_found_db?sslmode=require&channel_binding=require');
+define('DB_URL', getenv('DATABASE_URL'));
 
 /**
  * Get a PDO database connection instance.
