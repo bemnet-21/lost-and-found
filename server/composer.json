@@ -1,0 +1,13 @@
+{
+  "name": "lost-and-found-server",
+  "description": "Plain PHP Lost and Found API server.",
+  "require": {
+    "php": ">=8.0.0"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": {
+      "App\\": "./"
+    }
+  }
+}

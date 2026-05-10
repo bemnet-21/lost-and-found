@@ -1,0 +1,7 @@
+[phases.setup]
+# Install PHP extensions
+nixPkgs = ["php", "phpPackages.pdo", "phpPackages.pdo_mysql"]
+
+[start]
+# Serve all PHP files in /api as entry points
+cmd = "php -S 0.0.0.0:$PORT -t api"
