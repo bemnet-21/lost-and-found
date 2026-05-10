@@ -1,0 +1,2 @@
+# This file ensures the uploads directory is tracked by Git.
+# Uploaded item images are stored in this directory at runtime.
