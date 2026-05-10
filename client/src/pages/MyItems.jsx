@@ -42,8 +42,8 @@ export default function MyItems() {
   const handleStatusChange = async (itemId, status) => {
     try {
       const { data } = await apiFetch('/items/update.php', {
-        method: 'POST',
-        body: JSON.stringify({ item_id: itemId, status }),
+        method: 'PUT',
+        body: JSON.stringify({ id: itemId, status }),
       });
       if (data.success) {
         setItems(items.map(i => i.id === itemId ? { ...i, status } : i));
@@ -57,11 +57,10 @@ export default function MyItems() {
 
   const handleDelete = async (itemId) => {
     if (!window.confirm('Are you sure you want to delete this item?')) return;
-    
     try {
       const { data } = await apiFetch('/items/delete.php', {
-        method: 'POST',
-        body: JSON.stringify({ item_id: itemId }),
+        method: 'DELETE',
+        body: JSON.stringify({ id: itemId }),
       });
       if (data.success) {
         setItems(items.filter(i => i.id !== itemId));
