@@ -9,7 +9,6 @@
  * Must be included at the top of every API entry point.
  */
 
-// Allow only the Vercel frontend in production, allow all in local dev
 $allowedOrigins = [
     'https://lost-and-found-dusky.vercel.app',
     'http://localhost:3000',

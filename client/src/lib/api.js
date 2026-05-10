@@ -1,4 +1,4 @@
-const BASE_URL = 'https://lost-and-found-production-7e24.up.railway.app/';
+const BASE_URL = 'https://lost-and-found-production-7e24.up.railway.app';
 
 export async function apiFetch(endpoint, options = {}) {
   const url = `${BASE_URL}${endpoint}`;
