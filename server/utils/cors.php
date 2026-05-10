@@ -9,18 +9,17 @@
  * Must be included at the top of every API entry point.
  */
 
-// Dynamically allow requests from any origin
-$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '*';
-
-// If credentials are allowed, the origin cannot be '*'
-// We must echo back the exact origin that made the request
-if ($origin === '*' && isset($_SERVER['HTTP_ORIGIN'])) {
-    $origin = $_SERVER['HTTP_ORIGIN'];
+// Allow only the Vercel frontend in production, allow all in local dev
+$allowedOrigins = [
+    'https://lost-and-found-dusky.vercel.app',
+    'http://localhost:3000',
+];
+$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+if (in_array($origin, $allowedOrigins)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
+} else {
+    header('Access-Control-Allow-Origin: https://lost-and-found-dusky.vercel.app');
 }
-
-header('Access-Control-Allow-Origin: ' . $origin);
-
-// Allow credentials (cookies/sessions) to be sent cross-origin
 header('Access-Control-Allow-Credentials: true');
 
 // Allowed HTTP methods

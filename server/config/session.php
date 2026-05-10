@@ -7,16 +7,16 @@
  */
 
 if (session_status() === PHP_SESSION_NONE) {
-    // Set session cookie parameters for security
+    $isProduction = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+    $frontendDomain = 'lost-and-found-dusky.vercel.app';
     session_set_cookie_params([
-        'lifetime' => 0,                // Session cookie (expires when browser closes)
+        'lifetime' => 0,
         'path'     => '/',
-        'domain'   => '',                // Current domain only
-        'secure'   => false,             // Set to true in production with HTTPS
-        'httponly'  => true,             // Prevent JavaScript access to session cookie
-        'samesite' => 'Lax',            // CSRF protection
+        'domain'   => $isProduction ? $frontendDomain : '', // Set domain for cross-site in prod
+        'secure'   => $isProduction, // Secure only in production/HTTPS
+        'httponly' => true,
+        'samesite' => $isProduction ? 'None' : 'Lax', // None for cross-site, Lax for local
     ]);
-
     session_name('LOSTNFOUND_SESSID');
     session_start();
 }
